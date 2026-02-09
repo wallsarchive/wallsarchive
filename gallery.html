@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>walls — gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="gallery">
+
+  <nav class="topnav topnav--top">
+    <a class="navlink" href="index.html">Home</a>
+    <a class="navlink" href="gallery.html">Gallery</a>
+  </nav>
+
+  <div class="gallery-layout">
+    <aside class="sidebar" aria-label="Artist filters">
+      <div class="sidebar-inner">
+        <button class="filterbtn is-active" data-filter="all" type="button">All</button>
+        <div class="filter-list" id="artistFilters"></div>
+      </div>
+    </aside>
+
+    <main class="gridwrap" aria-label="Works grid">
+      <div class="grid" id="worksGrid"></div>
+    </main>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Preview">
+    <div class="lightbox-inner">
+      <button class="lb-close" id="lbClose" type="button" aria-label="Close">×</button>
+
+      <div class="lb-media" id="lbMedia"></div>
+
+      <div class="lb-actions">
+        <button class="sharebtn" id="lbShare" type="button">Share</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
