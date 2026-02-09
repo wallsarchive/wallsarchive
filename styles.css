@@ -54,6 +54,12 @@ body{
   display: block;
 }
 
+.home-caption,
+.vlabel{
+  color: var(--text);
+  -webkit-text-fill-color: var(--text);
+}
+
 /* ===== NAV ===== */
 /* ===== ACTIVE NAV LINK ===== */
 .navlink.is-active{
