@@ -10,7 +10,9 @@ const WORKS = [
   { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco1.jpg",  caption: "Hunter Pacheco — work 1",  view: "hunterpacheco1.html" },
   { type: "image", artist: "Jasmine Phan",    file: "jasminephan1.jpg",    caption: "Jasmine Phan — work 1",    view: "jasminephan1.html" },
   { type: "image", artist: "Mariah Hall",     file: "mariahhall1.jpg",     caption: "Mariah Hall — work 1",     view: "mariahhall1.html" },
-  { type: "video", artist: "DanyoInaki",      youtubeId: YT_ID,            caption: "DanyoInaki — video",        shareUrl: YT_URL }
+
+  // Video
+  { type: "video", artist: "DanyoInaki", youtubeId: YT_ID, caption: "DanyoInaki — video", shareUrl: YT_URL }
 ];
 
 // ===== HELPERS =====
@@ -66,20 +68,24 @@ function youtubeEmbedUrl(id, { autoplay=false, mute=false, loop=false, controls=
   return `https://www.youtube.com/embed/${id}?${params.toString()}`;
 }
 
-// ===== NAV ACTIVE STATE =====
-function ActiveNav(){
-  const page = document.body?.data?.page;
-  if (!page) return;
+// ===== NAV ACTIVE STATE (ROBUST) =====
+function setActiveNav(){
+  const path = window.location.pathname;
 
   document.querySelectorAll(".navlink").forEach(link => {
     link.classList.remove("is-active");
 
     const href = link.getAttribute("href");
 
-    if (
-      (page === "home" && href === "index.html") ||
-      (page === "gallery" && href === "gallery.html")
-    ) {
+    const isHome =
+      href === "index.html" &&
+      (path === "/" || path.endsWith("/index.html"));
+
+    const isGallery =
+      href === "gallery.html" &&
+      path.endsWith("/gallery.html");
+
+    if (isHome || isGallery) {
       link.classList.add("is-active");
     }
   });
@@ -125,9 +131,7 @@ function renderHome() {
     btn.textContent = "Share";
 
     btn.onclick = async () => {
-      await shareLink(
-        work.type === "image" ? viewUrlFor(work) : work.shareUrl
-      );
+      await shareLink(work.type === "image" ? viewUrlFor(work) : work.shareUrl);
     };
 
     actions.appendChild(btn);
@@ -153,14 +157,18 @@ function renderFilters() {
     holder.appendChild(btn);
   });
 
-  document.querySelector('[data-filter="all"]')?.addEventListener("click", () => setFilter("all"));
+  document
+    .querySelector('[data-filter="all"]')
+    ?.addEventListener("click", () => setFilter("all"));
 }
 
 function setFilter(filter) {
   currentFilter = filter;
 
   document.querySelectorAll(".filterbtn").forEach(b => b.classList.remove("is-active"));
-  document.querySelector(`.filterbtn[data-filter="${CSS.escape(filter)}"]`)?.classList.add("is-active");
+  document
+    .querySelector(`.filterbtn[data-filter="${CSS.escape(filter)}"]`)
+    ?.classList.add("is-active");
 
   renderGrid();
 }
@@ -250,21 +258,13 @@ function closeLightbox() {
 }
 
 // ===== INIT =====
-function setActiveNav(){
-  const path = window.location.pathname;
+(function init(){
+  setActiveNav();
 
-  document.querySelectorAll(".navlink").forEach(link => {
-    link.classList.remove("is-active");
-
-    const href = link.getAttribute("href");
-
-    if (
-      (href === "index.html" && (path === "/" || path.endsWith("index.html"))) ||
-      (href === "gallery.html" && path.endsWith("gallery.html"))
-    ) {
-      link.classList.add("is-active");
-    }
-  });
-}
-
-
+  const page = document.body?.dataset?.page;
+  if (page === "home") renderHome();
+  if (page === "gallery") {
+    renderFilters();
+    renderGrid();
+  }
+})();
