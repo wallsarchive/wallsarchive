@@ -36,7 +36,11 @@ button{
   border-radius: 0;
   color: var(--text);
   font-family: inherit;
+
+  display: inline-flex;
+  align-items: center;
 }
+
 
 /* ===== HERO ===== */
 .hero img{
