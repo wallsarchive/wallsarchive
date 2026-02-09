@@ -27,6 +27,18 @@ body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
+/* ===== GLOBAL LINK COLOR RESET (iOS SAFARI FIX) ===== */
+a,
+a:any-link,
+a:visited,
+a:hover,
+a:active,
+a:focus{
+  color: inherit !important;
+  text-decoration: none;
+  -webkit-text-fill-color: currentColor;
+}
+
 /* ===== HERO ===== */
 .hero img{
   width: 100%;
