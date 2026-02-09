@@ -18,6 +18,7 @@
   --btn-pad-x: 16px;
 }
 
+/* ===== GLOBAL RESETS ===== */
 *{ box-sizing: border-box; }
 
 body{
@@ -27,23 +28,15 @@ body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* ===== GLOBAL LINK COLOR RESET (iOS SAFARI FIX) ===== */
-a,
-a:any-link,
-a:visited,
-a:hover,
-a:active,
-a:focus{
-  color: inherit !important;
-  text-decoration: none;
-  -webkit-text-fill-color: currentColor;
+/* 🔒 iOS SAFARI BUTTON COLOR FIX */
+button{
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border-radius: 0;
+  color: var(--text);
+  font-family: inherit;
 }
-
-/* Prevent iOS auto-link coloring */
-body{
-  -webkit-text-size-adjust: 100%;
-}
-
 
 /* ===== HERO ===== */
 .hero img{
@@ -54,39 +47,7 @@ body{
   display: block;
 }
 
-.home-caption,
-.vlabel{
-  color: var(--text);
-  -webkit-text-fill-color: var(--text);
-}
-
 /* ===== NAV ===== */
-/* ===== ACTIVE NAV LINK ===== */
-.navlink.is-active{
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 6px;
-}
-
-/* ===== FIX MOBILE LINK COLORS ===== */
-.navlink,
-.navlink:visited,
-.navlink:active,
-.navlink:focus{
-  color: var(--text);
-}
-
-/* Remove iOS blue tap highlight */
-.navlink{
-  -webkit-tap-highlight-color: transparent;
-}
-
-.navlink:focus-visible{
-  outline: 2px solid rgba(0,0,0,0.4);
-  outline-offset: 4px;
-}
-
-
 .topnav{
   position: sticky;
   top: 0;
@@ -108,6 +69,14 @@ body{
   color: var(--text);
   letter-spacing: 0.06em;
   font-size: 0.95rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* active page highlight */
+.navlink.is-active{
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 6px;
 }
 
 /* ===== HOME FEED ===== */
@@ -122,6 +91,7 @@ body{
   max-width: var(--content-max);
   margin: 0 auto;
   width: 100%;
+  text-align: center;
 }
 
 .home-media img{
@@ -137,10 +107,11 @@ body{
 
 .actions{
   margin-top: 12px;
+  display: flex;
+  justify-content: center;
 }
 
 .sharebtn{
-  appearance: none;
   border: var(--btn-border);
   background: transparent;
   color: var(--text);
@@ -203,6 +174,7 @@ body{
   padding: 8px 6px;
   cursor: pointer;
   font-size: 0.95rem;
+  color: var(--text);
 }
 
 .filterbtn.is-active{
@@ -238,6 +210,7 @@ body{
   margin-top: 8px;
   font-size: 0.9rem;
   opacity: 0.85;
+  text-align: center;
 }
 
 /* ===== LIGHTBOX ===== */
@@ -311,7 +284,7 @@ body{
     padding: 10px 0;
   }
 
-  /* horizontal artist scroll ONLY */
+  /* horizontal artist scroll only */
   .sidebar-inner{
     position: static;
     padding: 0 var(--page-pad);
@@ -340,7 +313,6 @@ body{
     flex-shrink: 0;
   }
 
-  /* grid scrolls vertically only */
   .gridwrap{
     overflow-x: hidden;
   }
