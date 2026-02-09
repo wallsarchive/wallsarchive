@@ -1,1 +1,301 @@
+/* ====== EDIT THESE LATER ====== */
+:root{
+  --bg: #ebe5d3;
+  --text: #000;
+
+  --page-pad: 28px;          /* global side margins */
+  --content-max: 980px;      /* max width for centered posters */
+  --stack-gap: 64px;         /* spacing between home items */
+
+  --nav-bg: rgba(235,229,211,0.92);
+  --nav-border: rgba(0,0,0,0.12);
+
+  --sidebar-w: 260px;        /* gallery sidebar width */
+  --grid-gap: 14px;          /* gallery spacing */
+
+  --btn-border: 1px solid #000; /* thin black outline */
+  --btn-pad-y: 10px;
+  --btn-pad-x: 16px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* ===== HERO ===== */
+.hero img{
+  width: 100%;
+  height: 78vh;
+  min-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== NAV (below hero on home, sticky after scrolling) ===== */
+.topnav{
+  position: sticky;
+  top: 0;
+  z-index: 30;
+
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+
+  padding: 14px var(--page-pad);
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.topnav--top{
+  /* same sticky behavior, but appears immediately on gallery */
+}
+
+.navlink{
+  text-decoration: none;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+}
+
+/* ===== HOME FEED ===== */
+.home{
+  padding: 34px var(--page-pad) 80px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap);
+}
+
+.home-item{
+  max-width: var(--content-max);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-media{
+  width: 100%;
+  display: block;
+}
+
+.home-media img{
+  width: 100%;
+  display: block;
+}
+
+.home-caption{
+  margin-top: 14px;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.actions{
+  margin-top: 12px;
+}
+
+.sharebtn{
+  appearance: none;
+  border: var(--btn-border);
+  background: transparent;
+  color: var(--text);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.sharebtn:active{
+  transform: translateY(1px);
+}
+
+/* ===== YouTube embed sizing (home) ===== */
+.ytwrap{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(0,0,0,0.06);
+}
+
+.ytwrap iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ===== GALLERY LAYOUT ===== */
+.gallery-layout{
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  gap: 0;
+  min-height: 100vh;
+}
+
+.sidebar{
+  padding: 22px 0;
+  border-right: 1px solid var(--nav-border);
+}
+
+.sidebar-inner{
+  position: sticky;
+  top: 56px; /* below nav */
+  padding: 0 var(--page-pad);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-list{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterbtn{
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 8px 6px;
+  cursor: pointer;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  font-size: 0.95rem;
+}
+
+.filterbtn.is-active{
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.gridwrap{
+  padding: 22px var(--page-pad) 60px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+.tile{
+  cursor: pointer;
+}
+
+.thumb{
+  width: 100%;
+  display: block;
+  background: rgba(0,0,0,0.05);
+}
+
+.thumb img{
+  width: 100%;
+  display: block;
+}
+
+/* video tile label */
+.vlabel{
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.92);
+  padding: 22px;
+}
+
+.lightbox-inner{
+  position: relative;
+  width: min(1100px, 96vw);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lb-close{
+  position: absolute;
+  top: -12px;
+  right: -6px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 44px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lb-media{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 82vh;
+}
+
+.lb-media img{
+  max-width: 96vw;
+  max-height: 82vh;
+  display: block;
+}
+
+.lb-media .ytwrap{
+  width: min(1000px, 96vw);
+  max-height: 82vh;
+}
+
+.lb-actions{
+  display: flex;
+  justify-content: center;
+}
+
+.lb-actions .sharebtn{
+  border-color: #fff;
+  color: #fff;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 860px){
+  .gallery-layout{
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar{
+    border-right: 0;
+    border-bottom: 1px solid var(--nav-border);
+    padding: 10px 0;
+  }
+
+  .sidebar-inner{
+    position: static;
+    padding: 0 var(--page-pad);
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 12px;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .filter-list{
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .filterbtn{
+    padding: 8px 10px;
+  }
+}
 
