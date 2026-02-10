@@ -65,9 +65,8 @@ button{
 
 /* ===== CENTERED COUNTDOWN ===== */
 .countdown-center{
-  min-height: calc(100vh - 72px); /* accounts for nav height */
+  padding: 48px 0 32px;   /* controlled breathing room */
   display: flex;
-  align-items: center;
   justify-content: center;
   text-align: center;
 }
