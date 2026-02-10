@@ -249,10 +249,40 @@ function closeLightbox() {
   currentWork = null;
 }
 
+// ===== COUNTDOWN =====
+function startCountdown(targetDate){
+  const el = document.getElementById("countdownTime");
+  if (!el) return;
+
+  function tick(){
+    const now = Date.now();
+    const diff = targetDate - now;
+
+    if (diff <= 0){
+      el.textContent = "00:00:00";
+      return;
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    el.textContent =
+      `${String(hours).padStart(2,"0")}:` +
+      `${String(minutes).padStart(2,"0")}:` +
+      `${String(seconds).padStart(2,"0")}`;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+
+
 // ===== INIT =====
 (function init(){
   setActiveNav();
-
+  startCountdown(new Date("2026-02-21T14:00:00-08:00").getTime());
   const page = document.body?.dataset?.page;
   if (page === "home") renderHome();
   if (page === "gallery") {

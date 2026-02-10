@@ -63,6 +63,28 @@ button{
   -webkit-backdrop-filter: blur(10px)
 }
 
+/* ===== CENTERED COUNTDOWN ===== */
+.countdown-center{
+  padding: 48px 0 32px;   /* controlled breathing room */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.countdown-bar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+
+.countdown-time{
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;        /* same weight as active nav */
+  letter-spacing: 0.04em;  /* consistent with buttons */
+}
+
 /* ===== ACTIVE NAV (CSS-ONLY) ===== */
 body[data-page="home"] .navlink[href="index.html"],
 body[data-page="gallery"] .navlink[href="gallery.html"]{
