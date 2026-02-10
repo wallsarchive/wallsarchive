@@ -87,6 +87,29 @@ body[data-page="gallery"] .navlink[href="gallery.html"]{
   text-underline-offset: 6px;
 }
 
+/* ===== COUNTDOWN BAR ===== */
+.countdown-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 0;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+.countdown-label{
+  opacity: 0.7;
+}
+
+.countdown-time{
+  font-weight: 600;
+}
+
 /* ===== HOME FEED ===== */
 .home{
   padding: 34px var(--page-pad) 80px;
