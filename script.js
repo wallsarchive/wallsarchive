@@ -249,33 +249,38 @@ function closeLightbox() {
   currentWork = null;
 }
 
-// ===== COUNTDOWN =====
+// ===== COUNTDOWN (DAYS / HOURS / MINUTES) =====
 function startCountdown(targetDate){
   const el = document.getElementById("countdownTime");
   if (!el) return;
 
   function tick(){
     const now = Date.now();
-    const diff = targetDate - now;
+    let diff = targetDate - now;
 
     if (diff <= 0){
-      el.textContent = "00:00:00";
+      el.textContent = "00d 00h 00m";
       return;
     }
 
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff %= (1000 * 60 * 60 * 24);
+
     const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+    diff %= (1000 * 60 * 60);
+
+    const minutes = Math.floor(diff / (1000 * 60));
 
     el.textContent =
-      `${String(hours).padStart(2,"0")}:` +
-      `${String(minutes).padStart(2,"0")}:` +
-      `${String(seconds).padStart(2,"0")}`;
+      `${String(days).padStart(2,"0")}d ` +
+      `${String(hours).padStart(2,"0")}h ` +
+      `${String(minutes).padStart(2,"0")}m`;
   }
 
   tick();
-  setInterval(tick, 1000);
+  setInterval(tick, 60 * 1000); // update every minute
 }
+
 
 
 // ===== INIT =====
