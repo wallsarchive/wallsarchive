@@ -281,7 +281,7 @@ function startCountdown(targetDate){
 // ===== INIT =====
 (function init(){
   setActiveNav();
-
+  startCountdown(new Date("2026-02-21T14:00:00-08:00").getTime());
   const page = document.body?.dataset?.page;
   if (page === "home") renderHome();
   if (page === "gallery") {
