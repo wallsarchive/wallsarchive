@@ -78,18 +78,11 @@ button{
   gap: 14px;
 }
 
-.countdown-label{
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;   /* matches nav / captions */
-  font-weight: 400;
-  opacity: 0.6;
-}
 
 .countdown-time{
-  font-size: clamp(2.2rem, 8vw, 3.6rem);
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 600;        /* same weight as active nav */
   letter-spacing: 0.04em;  /* consistent with buttons */
-  line-height: 1.1;
 }
 
 /* ===== ACTIVE NAV (CSS-ONLY) ===== */
