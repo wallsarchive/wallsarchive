@@ -32,7 +32,7 @@ async function shareLink(url, text = "") {
 
   try {
     await navigator.clipboard.writeText(url);
-    alert("Link copied.");
+    showToast("Link copied");
   } catch (_) {
     const ta = document.createElement("textarea");
     ta.value = url;
