@@ -169,22 +169,25 @@ function setupHeroSwap(){
 
   let swapped = false;
 
-  hero.addEventListener("click", () => {
-    if (swapped) return;
+hero.addEventListener("click", (e) => {
+  if (swapped) return;
 
-    const newSrc = hero.dataset.altSrc;
-    if (!newSrc) return;
+  const newSrc = hero.dataset.altSrc;
+  if (!newSrc) return;
 
-    swapped = true;
+  swapped = true;
 
-    hero.classList.add("is-fading");
+  // 💗 spawn hearts at click position
+  spawnHearts(e.clientX, e.clientY);
 
-    setTimeout(() => {
-      hero.src = newSrc;
-      hero.classList.remove("is-fading");
-      hero.style.cursor = "default"; // no longer clickable
-    }, 450);
-  });
+  hero.classList.add("is-fading");
+
+  setTimeout(() => {
+    hero.src = newSrc;
+    hero.classList.remove("is-fading");
+    hero.style.cursor = "default";
+  }, 450);
+});
 }
 
 
