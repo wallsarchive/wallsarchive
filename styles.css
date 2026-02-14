@@ -330,6 +330,37 @@ body[data-page="gallery"] .navlink[href="gallery.html"]{
   color: #fff;
 }
 
+/* ===== HEART PARTICLES ===== */
+.heart-particle{
+  position: fixed;
+  font-size: 18px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 200;
+
+  animation: heartFloat 1.6s ease-out forwards;
+}
+
+@keyframes heartFloat{
+  0%{
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.6);
+  }
+  15%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    transform:
+      translate(
+        calc(-50% + var(--driftX)),
+        calc(-120px - var(--rise))
+      )
+      scale(1.2);
+  }
+}
+
+
 /* ===== MOBILE ===== */
 @media (max-width: 860px){
 
