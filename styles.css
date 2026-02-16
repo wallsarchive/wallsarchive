@@ -182,10 +182,16 @@ body[data-page="gallery"] .navlink[href="gallery.html"]{
   font-size: 0.92rem;
   letter-spacing: 0.04em;
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .sharebtn:active{
   transform: translateY(1px);
+}
+
+.sharebtn:hover{
+  background: #000;
+  color: #fff;
 }
 
 /* ===== YOUTUBE ===== */
