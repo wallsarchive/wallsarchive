@@ -128,6 +128,9 @@ function renderHome() {
 
     const img = document.createElement("img");
     img.src = `images/${poster.file}`;
+    img.loading = "eager";
+    img.decoding = "async";
+
     img.alt = "";
     media.appendChild(img);
 
