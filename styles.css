@@ -280,6 +280,25 @@ body[data-page="gallery"] .navlink[href="gallery.html"]{
   opacity: 0.85;
   text-align: center;
 }
+/* poster navigation arrows */
+.lb-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 42px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.lb-prev{ left: -60px; }
+.lb-next{ right: -60px; }
+
+.lb-nav:hover{
+  opacity: 0.7;
+}
 
 /* ===== LIGHTBOX ===== */
 .lightbox{
