@@ -122,32 +122,19 @@ function renderHome() {
   const feed = document.getElementById("homeFeed");
   if (!feed) return;
 
-  WORKS.forEach(work => {
+  const frag = document.createDocumentFragment();
+
+  HOME_POSTERS.forEach(poster => {
     const item = document.createElement("section");
     item.className = "home-item";
 
     const media = document.createElement("div");
     media.className = "home-media";
 
-    if (work.type === "image") {
-      const img = document.createElement("img");
-      img.src = `images/${work.file}`;
-      img.alt = "";
-      media.appendChild(img);
-    } else {
-      const wrap = document.createElement("div");
-      wrap.className = "ytwrap";
-      const iframe = document.createElement("iframe");
-      iframe.src = youtubeEmbedUrl(work.youtubeId, { autoplay: true, mute: true, loop: true, controls: false });
-      iframe.allow = "autoplay; encrypted-media; picture-in-picture";
-      iframe.allowFullscreen = true;
-      wrap.appendChild(iframe);
-      media.appendChild(wrap);
-    }
-
-    const caption = document.createElement("div");
-    caption.className = "home-caption";
-    caption.textContent = work.caption || "";
+    const img = document.createElement("img");
+    img.src = `images/${poster.file}`;
+    img.alt = "";
+    media.appendChild(img);
 
     const actions = document.createElement("div");
     actions.className = "actions";
@@ -156,17 +143,17 @@ function renderHome() {
     btn.className = "sharebtn";
     btn.textContent = "Share";
 
-    btn.onclick = async () => {
-      await shareLink(
-        work.type === "image" ? viewUrlFor(work) : work.shareUrl
-      );
-    };
+    btn.onclick = () => shareLink(poster.shareUrl);
 
     actions.appendChild(btn);
-    item.append(media, caption, actions);
-    feed.appendChild(item);
+
+    item.append(media, actions);
+    frag.appendChild(item);
   });
+
+  feed.appendChild(frag);
 }
+
 
 // ===== GALLERY =====
 let currentFilter = "all";
