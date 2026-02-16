@@ -2,6 +2,26 @@
 const YT_URL = "https://www.youtube.com/watch?v=xvFZjo5PgG0";
 const YT_ID = "xvFZjo5PgG0"; // replace later
 
+
+// ===== HOME POSTERS (front page only) =====
+const HOME_POSTERS = [
+  {
+    file: "poster1.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster1"
+  },
+  {
+    file: "poster2.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster2"
+  },
+  {
+    file: "poster3.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster3"
+  }
+];
+
 // Each image work: file in /images + share page in /view/<view>.html
 const WORKS = [
   { type: "image", artist: "Brandon Andrade", file: "brandonandrade1.jpg", caption: "Brandon Andrade — work 1", view: "brandonandrade1.html" },
