@@ -119,7 +119,7 @@ function renderHome() {
 
   const frag = document.createDocumentFragment();
 
-  HOME_POSTERS.forEach(poster => {
+  HOME_POSTERS.forEach((poster, index) => {
     const item = document.createElement("section");
     item.className = "home-item";
 
@@ -133,6 +133,9 @@ function renderHome() {
 
     img.alt = "";
     media.appendChild(img);
+    img.style.cursor = "pointer";
+    img.onclick = () => openPosterLightbox(index);
+
 
     const actions = document.createElement("div");
     actions.className = "actions";
@@ -306,6 +309,65 @@ function renderPosterPage() {
   if (!poster) return;
 
   img.src = `images/${poster.file}`;
+}
+
+let currentPosterIndex = null;
+function openPosterLightbox(index) {
+  const lb = document.getElementById("posterLightbox");
+  const media = document.getElementById("posterLbMedia");
+
+  currentPosterIndex = index;
+  media.innerHTML = "";
+
+  const poster = HOME_POSTERS[index];
+
+  const img = document.createElement("img");
+  img.src = `images/${poster.file}`;
+
+  media.appendChild(img);
+
+  lb.style.display = "flex";
+  document.body.style.overflow = "hidden";
+
+  document.getElementById("posterClose").onclick = closePosterLightbox;
+  document.getElementById("posterPrev").onclick = showPrevPoster;
+  document.getElementById("posterNext").onclick = showNextPoster;
+
+  window.addEventListener("keydown", posterKeyNav);
+}
+function closePosterLightbox() {
+  document.getElementById("posterLightbox").style.display = "none";
+  document.getElementById("posterLbMedia").innerHTML = "";
+  document.body.style.overflow = "";
+
+  window.removeEventListener("keydown", posterKeyNav);
+}
+function showPoster(index) {
+  const media = document.getElementById("posterLbMedia");
+  media.innerHTML = "";
+
+  currentPosterIndex =
+    (index + HOME_POSTERS.length) % HOME_POSTERS.length;
+
+  const poster = HOME_POSTERS[currentPosterIndex];
+
+  const img = document.createElement("img");
+  img.src = `images/${poster.file}`;
+
+  media.appendChild(img);
+}
+
+function showNextPoster() {
+  showPoster(currentPosterIndex + 1);
+}
+
+function showPrevPoster() {
+  showPoster(currentPosterIndex - 1);
+}
+function posterKeyNav(e) {
+  if (e.key === "Escape") closePosterLightbox();
+  if (e.key === "ArrowRight") showNextPoster();
+  if (e.key === "ArrowLeft") showPrevPoster();
 }
 
 
