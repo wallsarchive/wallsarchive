@@ -291,6 +291,19 @@ function startCountdown(targetDate){
   setInterval(tick, 1000);
 }
 
+// ===== POSTER PAGE =====
+function renderPosterPage() {
+  const img = document.getElementById("posterImage");
+  if (!img) return; // not on poster page
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  const poster = HOME_POSTERS.find(p => p.id === id);
+  if (!poster) return;
+
+  img.src = `images/${poster.file}`;
+}
 
 
 // ===== INIT =====
