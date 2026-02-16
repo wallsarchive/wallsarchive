@@ -178,7 +178,7 @@ body[data-page="gallery"] .navlink[href="gallery.html"]{
   background: transparent;
   color: var(--text);
   padding: var(--btn-pad-y) var(--btn-pad-x);
-  border-radius: 999px;
+  border-radius: 0px;
   font-size: 0.92rem;
   letter-spacing: 0.04em;
   cursor: pointer;
@@ -354,6 +354,24 @@ body[data-page="gallery"] .navlink[href="gallery.html"]{
   transform: translateX(-50%) translateY(0);
 }
 
+/* ===== POSTER PAGE ===== */
+
+.poster-page{
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px var(--page-pad);
+}
+
+.poster-page img{
+  max-height: 75vh;     /* prevents full-screen takeover */
+  max-width: min(900px, 90vw);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
 
 /* ===== MOBILE ===== */
 @media (max-width: 860px){

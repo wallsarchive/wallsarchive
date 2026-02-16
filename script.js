@@ -5,36 +5,12 @@ const YT_ID = "xvFZjo5PgG0"; // replace later
 
 // ===== HOME POSTERS (front page only) =====
 const HOME_POSTERS = [
-  {
-    file: "poster1.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster1"
-  },
-  {
-    file: "poster2.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster2"
-  },
-  {
-    file: "poster3.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster3"
-  },
-  {
-    file: "poster4.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster3"
-  },
-  {
-    file: "poster5.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster3"
-  },
-  {
-    file: "poster6.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster3"
-  }
+  { id: "poster1", file: "poster1.jpg" },
+  { id: "poster2", file: "poster2.jpg" },
+  { id: "poster3", file: "poster3.jpg" },
+  { id: "poster4", file: "poster4.jpg" },
+  { id: "poster5", file: "poster5.jpg" },
+  { id: "poster6", file: "poster6.jpg" }
 ];
 
 // Each image work: file in /images + share page in /view/<view>.html
@@ -51,6 +27,10 @@ const WORKS = [
 // ===== HELPERS =====
 function siteOrigin() {
   return window.location.origin;
+}
+function posterUrlFor(poster) {
+  const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
+  return `${base}/poster.html?id=${poster.id}`;
 }
 
 function viewUrlFor(work) {
@@ -158,7 +138,7 @@ function renderHome() {
     btn.className = "sharebtn";
     btn.textContent = "Share";
 
-    btn.onclick = () => shareLink(poster.shareUrl);
+    btn.onclick = () => shareLink(posterUrlFor(poster));
 
     actions.appendChild(btn);
 
@@ -311,16 +291,34 @@ function startCountdown(targetDate){
   setInterval(tick, 1000);
 }
 
+// ===== POSTER PAGE =====
+function renderPosterPage() {
+  const img = document.getElementById("posterImage");
+  if (!img) return; // not on poster page
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  const poster = HOME_POSTERS.find(p => p.id === id);
+  if (!poster) return;
+
+  img.src = `images/${poster.file}`;
+}
 
 
 // ===== INIT =====
 (function init(){
   setActiveNav();
   startCountdown(new Date("2026-02-21T14:00:00-08:00").getTime());
+
   const page = document.body?.dataset?.page;
+
   if (page === "home") renderHome();
   if (page === "gallery") {
     renderFilters();
     renderGrid();
   }
+
+  renderPosterPage(); // runs only if poster page exists
+
 })();
