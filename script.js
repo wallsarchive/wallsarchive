@@ -2,6 +2,41 @@
 const YT_URL = "https://www.youtube.com/watch?v=xvFZjo5PgG0";
 const YT_ID = "xvFZjo5PgG0"; // replace later
 
+
+// ===== HOME POSTERS (front page only) =====
+const HOME_POSTERS = [
+  {
+    file: "poster1.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster1"
+  },
+  {
+    file: "poster2.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster2"
+  },
+  {
+    file: "poster3.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster3"
+  },
+  {
+    file: "poster4.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster3"
+  },
+  {
+    file: "poster5.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster3"
+  },
+  {
+    file: "poster6.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster3"
+  }
+];
+
 // Each image work: file in /images + share page in /view/<view>.html
 const WORKS = [
   { type: "image", artist: "Brandon Andrade", file: "brandonandrade1.jpg", caption: "Brandon Andrade — work 1", view: "brandonandrade1.html" },
@@ -32,7 +67,7 @@ async function shareLink(url, text = "") {
 
   try {
     await navigator.clipboard.writeText(url);
-    alert("Link copied.");
+    showToast("Link copied");
   } catch (_) {
     const ta = document.createElement("textarea");
     ta.value = url;
@@ -42,6 +77,18 @@ async function shareLink(url, text = "") {
     ta.remove();
     alert("Link copied.");
   }
+}
+
+function showToast(message){
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
 }
 
 function uniqArtists(works) {
@@ -90,32 +137,19 @@ function renderHome() {
   const feed = document.getElementById("homeFeed");
   if (!feed) return;
 
-  WORKS.forEach(work => {
+  const frag = document.createDocumentFragment();
+
+  HOME_POSTERS.forEach(poster => {
     const item = document.createElement("section");
     item.className = "home-item";
 
     const media = document.createElement("div");
     media.className = "home-media";
 
-    if (work.type === "image") {
-      const img = document.createElement("img");
-      img.src = `images/${work.file}`;
-      img.alt = "";
-      media.appendChild(img);
-    } else {
-      const wrap = document.createElement("div");
-      wrap.className = "ytwrap";
-      const iframe = document.createElement("iframe");
-      iframe.src = youtubeEmbedUrl(work.youtubeId, { autoplay: true, mute: true, loop: true, controls: false });
-      iframe.allow = "autoplay; encrypted-media; picture-in-picture";
-      iframe.allowFullscreen = true;
-      wrap.appendChild(iframe);
-      media.appendChild(wrap);
-    }
-
-    const caption = document.createElement("div");
-    caption.className = "home-caption";
-    caption.textContent = work.caption || "";
+    const img = document.createElement("img");
+    img.src = `images/${poster.file}`;
+    img.alt = "";
+    media.appendChild(img);
 
     const actions = document.createElement("div");
     actions.className = "actions";
@@ -124,17 +158,17 @@ function renderHome() {
     btn.className = "sharebtn";
     btn.textContent = "Share";
 
-    btn.onclick = async () => {
-      await shareLink(
-        work.type === "image" ? viewUrlFor(work) : work.shareUrl
-      );
-    };
+    btn.onclick = () => shareLink(poster.shareUrl);
 
     actions.appendChild(btn);
-    item.append(media, caption, actions);
-    feed.appendChild(item);
+
+    item.append(media, actions);
+    frag.appendChild(item);
   });
+
+  feed.appendChild(frag);
 }
+
 
 // ===== GALLERY =====
 let currentFilter = "all";
