@@ -19,17 +19,18 @@ const HOME_POSTERS = [
     file: "poster3.jpg",
     caption: "",
     shareUrl: "https://your-link-here.com/poster3"
-  }
+  },
   {
     file: "poster4.jpg",
     caption: "",
     shareUrl: "https://your-link-here.com/poster3"
-  }
-{
+  },
+  {
     file: "poster5.jpg",
     caption: "",
     shareUrl: "https://your-link-here.com/poster3"
-  }{
+  },
+  {
     file: "poster6.jpg",
     caption: "",
     shareUrl: "https://your-link-here.com/poster3"
