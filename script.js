@@ -28,6 +28,10 @@ const WORKS = [
 function siteOrigin() {
   return window.location.origin;
 }
+function posterUrlFor(poster) {
+  const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
+  return `${base}/poster.html?id=${poster.id}`;
+}
 
 function viewUrlFor(work) {
   return `${siteOrigin()}/view/${work.view}`;
