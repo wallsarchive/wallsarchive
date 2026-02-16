@@ -20,6 +20,20 @@ const HOME_POSTERS = [
     caption: "",
     shareUrl: "https://your-link-here.com/poster3"
   }
+  {
+    file: "poster4.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster3"
+  }
+{
+    file: "poster5.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster3"
+  }{
+    file: "poster6.jpg",
+    caption: "",
+    shareUrl: "https://your-link-here.com/poster3"
+  }
 ];
 
 // Each image work: file in /images + share page in /view/<view>.html
