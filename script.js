@@ -5,36 +5,12 @@ const YT_ID = "xvFZjo5PgG0"; // replace later
 
 // ===== HOME POSTERS (front page only) =====
 const HOME_POSTERS = [
-  {
-    file: "poster1.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster1"
-  },
-  {
-    file: "poster2.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster2"
-  },
-  {
-    file: "poster3.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster3"
-  },
-  {
-    file: "poster4.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster3"
-  },
-  {
-    file: "poster5.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster3"
-  },
-  {
-    file: "poster6.jpg",
-    caption: "",
-    shareUrl: "https://your-link-here.com/poster3"
-  }
+  { id: "poster1", file: "poster1.jpg" },
+  { id: "poster2", file: "poster2.jpg" },
+  { id: "poster3", file: "poster3.jpg" },
+  { id: "poster4", file: "poster4.jpg" },
+  { id: "poster5", file: "poster5.jpg" },
+  { id: "poster6", file: "poster6.jpg" }
 ];
 
 // Each image work: file in /images + share page in /view/<view>.html
