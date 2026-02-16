@@ -138,7 +138,7 @@ function renderHome() {
     btn.className = "sharebtn";
     btn.textContent = "Share";
 
-    btn.onclick = () => shareLink(poster.shareUrl);
+    btn.onclick = () => shareLink(posterUrlFor(poster));
 
     actions.appendChild(btn);
 
