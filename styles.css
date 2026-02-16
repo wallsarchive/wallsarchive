@@ -134,7 +134,7 @@ body[data-page="gallery"] .navlink[href="gallery.html"]{
 
 /* ===== HOME FEED ===== */
 .home{
-  padding: 34px var(--page-pad) 80px;
+  padding: 60px var(--page-pad) 100px;
   display: flex;
   flex-direction: column;
   gap: var(--stack-gap);
