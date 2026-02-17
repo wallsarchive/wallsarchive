@@ -10,7 +10,7 @@ const HOME_POSTERS = [
   { id: "poster3", file: "poster3.jpg" },
   { id: "poster4", file: "poster4.jpg" },
   { id: "poster5", file: "poster5.jpg" },
-  { id: "poster6", file: "poster6.jpg" }
+  // { id: "poster6", file: "poster6.jpg" }
 ];
 
 // Each image work: file in /images + share page in /view/<view>.html
