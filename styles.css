@@ -434,7 +434,7 @@ body[data-page="gallery"] .navlink[href="gallery.html"]{
   }
 
   .grid{
-    grid-template-columns: repeat(2, 1fr);
+    column-count: 2;
   }
 
   .thumb,
