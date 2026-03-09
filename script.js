@@ -19,6 +19,8 @@ const WORKS = [
   { type: "image", artist: "Brandon Andrade", file: "brandonandrade2.jpg", caption: "Brandon Andrade — work 2", view: "brandonandrade2.html" },
   { type: "image", artist: "Brandon Andrade", file: "brandonandrade3.jpg", caption: "Brandon Andrade — work 3", view: "brandonandrade3.html" },
   { type: "image", artist: "D4IKON",          file: "d4ikon1.jpg",         caption: "D4IKON — work 1",          view: "d4ikon1.html" },
+  { type: "image", artist: "D4IKON",          file: "d4ikon2.jpg",         caption: "D4IKON — work 2",          view: "d4ikon2.html" },
+  { type: "image", artist: "D4IKON",          file: "d4ikon3.jpg",         caption: "D4IKON — work 3",          view: "d4ikon3.html" },
   // { type: "image", artist: "Gambit_one",      file: "gambitone1.jpg",      caption: "Gambit_one — work 1",      view: "gambitone1.html" },
   { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco1.jpg",  caption: "Hunter Pacheco — work 1",  view: "hunterpacheco1.html" },
   { type: "image", artist: "Jasmine Phan",    file: "jasminephan1.jpg",    caption: "Jasmine Phan — work 1",    view: "jasminephan1.html" },
