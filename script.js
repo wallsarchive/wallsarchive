@@ -23,6 +23,12 @@ const WORKS = [
   { type: "image", artist: "D4IKON",          file: "d4ikon3.jpg",         caption: "D4IKON — work 3",          view: "d4ikon3.html" },
   // { type: "image", artist: "Gambit_one",      file: "gambitone1.jpg",      caption: "Gambit_one — work 1",      view: "gambitone1.html" },
   { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco1.jpg",  caption: "Hunter Pacheco — work 1",  view: "hunterpacheco1.html" },
+  { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco2.jpg",  caption: "Hunter Pacheco — work 2",  view: "hunterpacheco2.html" },
+  { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco3.jpg",  caption: "Hunter Pacheco — work 3",  view: "hunterpacheco3.html" },
+  { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco4.jpg",  caption: "Hunter Pacheco — work 4",  view: "hunterpacheco4.html" },
+  { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco5.jpg",  caption: "Hunter Pacheco — work 5",  view: "hunterpacheco5.html" },
+  { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco6.jpg",  caption: "Hunter Pacheco — work 6",  view: "hunterpacheco6.html" },
+  { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco7.jpg",  caption: "Hunter Pacheco — work 7",  view: "hunterpacheco7.html" },
   { type: "image", artist: "Jasmine Phan",    file: "jasminephan1.jpg",    caption: "Jasmine Phan — work 1",    view: "jasminephan1.html" },
   { type: "image", artist: "Mariah Hall",     file: "mariahhall1.jpg",     caption: "Mariah Hall — work 1",     view: "mariahhall1.html" },
   // { type: "video", artist: "DanyoInaki",      youtubeId: YT_ID,            caption: "DanyoInaki — video",        shareUrl: YT_URL }
