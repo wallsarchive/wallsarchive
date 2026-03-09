@@ -16,6 +16,8 @@ const HOME_POSTERS = [
 // Each image work: file in /images + share page in /view/<view>.html
 const WORKS = [
   { type: "image", artist: "Brandon Andrade", file: "brandonandrade1.jpg", caption: "Brandon Andrade — work 1", view: "brandonandrade1.html" },
+  { type: "image", artist: "Brandon Andrade", file: "brandonandrade2.jpg", caption: "Brandon Andrade — work 2", view: "brandonandrade2.html" },
+  { type: "image", artist: "Brandon Andrade", file: "brandonandrade3.jpg", caption: "Brandon Andrade — work 3", view: "brandonandrade3.html" },
   { type: "image", artist: "D4IKON",          file: "d4ikon1.jpg",         caption: "D4IKON — work 1",          view: "d4ikon1.html" },
   // { type: "image", artist: "Gambit_one",      file: "gambitone1.jpg",      caption: "Gambit_one — work 1",      view: "gambitone1.html" },
   { type: "image", artist: "Hunter Pacheco",  file: "hunterpacheco1.jpg",  caption: "Hunter Pacheco — work 1",  view: "hunterpacheco1.html" },
