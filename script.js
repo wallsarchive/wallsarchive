@@ -39,6 +39,9 @@ const WORKS = [
   { type: "image", artist: "Jasmine Phan",    file: "jasminephan8.jpg",    caption: "Jasmine Phan — work 8",    view: "jasminephan8.html" },
   { type: "image", artist: "Jasmine Phan",    file: "jasminephan9.jpg",    caption: "Jasmine Phan — work 9",    view: "jasminephan9.html" },
   { type: "image", artist: "Mariah Hall",     file: "mariahhall1.jpg",     caption: "Mariah Hall — work 1",     view: "mariahhall1.html" },
+  { type: "image", artist: "Mariah Hall",     file: "mariahhall2.jpg",     caption: "Mariah Hall — work 2",     view: "mariahhall2.html" },
+  { type: "image", artist: "Mariah Hall",     file: "mariahhall3.jpg",     caption: "Mariah Hall — work 3",     view: "mariahhall3.html" },
+  { type: "image", artist: "Mariah Hall",     file: "mariahhall4.jpg",     caption: "Mariah Hall — work 4",     view: "mariahhall4.html" }
   // { type: "video", artist: "DanyoInaki",      youtubeId: YT_ID,            caption: "DanyoInaki — video",        shareUrl: YT_URL }
 ];
 
