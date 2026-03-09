@@ -250,9 +250,13 @@ body[data-page="gallery"] .navlink[href="gallery.html"]{
 }
 
 .grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: var(--grid-gap);
+  column-count: 4;
+  column-gap: var(--grid-gap);
+}
+
+.tile{
+  break-inside: avoid;
+  margin-bottom: var(--grid-gap);
 }
 
 .tile{
